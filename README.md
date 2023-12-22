@@ -44,9 +44,9 @@ Assume our workspace folder name is `Embedded-c` as created above which further 
 Embedded-c  
 │   
 ├── pi
-│   ├── Linux root filesytem: 2019-07-10-raspbian-buster-lite.zip
-│   ├── Linux kernel: kernel-qemu-4.14.79-stretch
-│   ├── Device tree blob: versatile-pb.dtb
+│   ├── 2019-07-10-raspbian-buster-lite.zip (Linux root filesytem)
+│   ├── kernel-qemu-4.14.79-stretch (Linux kernel)
+│   ├── versatile-pb.dtb (Device tree blob)
 ├── projects
 │   ├── 00_project
 │   ├── 01_project
