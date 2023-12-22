@@ -19,14 +19,16 @@
 ##### Download / Install Qemu       
 
 > https:/​/​www.​qemu.​org/​download/
-1. Change the directory to `pi` folder i.e. `cd ~/Embedded-c/pi` in the terminal and run following command
+
+1. Download [2019-07-10-raspbian-buster-lite.zip](http:/​/​downloads.​raspberrypi.​org/ raspbian_​lite/​images/​raspbian_​lite-​2019-​07-​12/​2019-​07-​10- raspbian-​buster-​lite.​zip) and place this zip file into `~/Embedded-c/pi` 
+2. Change the directory to `pi` folder i.e. `cd ~/Embedded-c/pi` in the terminal and run following command
 ```sh
 $ qemu-system-arm -M versatilepb -dtb versatile-pb.dtb -cpu arm1176 -kernel kernel-qemu-4.14.79-stretch -m 256 -drive file=2019-07-10-raspbian-buster-lite.img,format=raw -append "rw console=ttyAMA0 rootfstype=ext4 root=/dev/sda2 loglevel=8" -net user,hostfwd=tcp::22023-:22,hostfwd=tcp::9090-:9090 -net nic -serial stdio & 
 ```   
 
-2. A new window will appear, displaying the Linux boot process and few seconds later a login prompt
-3. Log in using `pi` as the username and `raspberry` as the password.
-4. Run following command and it will displays the architecutre as _ARM_ not _x86_ (our target system, Emulated Raspberry pi board)
+3. A new window will appear, displaying the Linux boot process and few seconds later a login prompt
+4. Log in using `pi` as the username and `raspberry` as the password.
+5. Run following command and it will displays the architecutre as _ARM_ not _x86_ (our target system, Emulated Raspberry pi board)
 ```sh
 $ uname -a
 ```      
@@ -37,7 +39,7 @@ Assume our workspace folder name is `Embedded-c` as created above which further 
 **Embedded-c**
 │
 ├── **pi**
-│   ├── Linux root filesytem: download [2019-07-10-raspbian-buster-lite.zip](http:/​/​downloads.​raspberrypi.​org/ raspbian_​lite/​images/​raspbian_​lite-​2019-​07-​12/​2019-​07-​10- raspbian-​buster-​lite.​zip) and extract it into `~/Embedded-c/pi` folder.
+│   ├── Linux root filesytem: _2019-07-10-raspbian-buster-lite.zip_
 │   ├── Linux kernel: _kernel-qemu-4.14.79-stretch_
 │   ├── Device tree blob: _versatile-pb.dtb_
 ├── **projects**
