@@ -20,7 +20,7 @@
 
 > https:/​/​www.​qemu.​org/​download/
 
-1. Download [2019-07-10-raspbian-buster-lite.zip](http:/​/​downloads.​raspberrypi.​org/ raspbian_​lite/​images/​raspbian_​lite-​2019-​07-​12/​2019-​07-​10- raspbian-​buster-​lite.​zip) and place this zip file into `~/Embedded-c/pi` 
+1. Download [2019-07-10-raspbian-buster-lite.zip](http://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-07-12/2019-07-10-raspbian-buster-lite.zip) and place this zip file into `~/Embedded-c/pi` 
 2. Change the directory to `pi` folder i.e. `cd ~/Embedded-c/pi` in the terminal and run following command
 ```sh
 $ qemu-system-arm -M versatilepb -dtb versatile-pb.dtb -cpu arm1176 -kernel kernel-qemu-4.14.79-stretch -m 256 -drive file=2019-07-10-raspbian-buster-lite.img,format=raw -append "rw console=ttyAMA0 rootfstype=ext4 root=/dev/sda2 loglevel=8" -net user,hostfwd=tcp::22023-:22,hostfwd=tcp::9090-:9090 -net nic -serial stdio & 
@@ -36,8 +36,9 @@ $ uname -a
 			
 Assume our workspace folder name is `Embedded-c` as created above which further contain two folders as follows:      
 
-**Embedded-c**
-│
+```
+**Embedded-c**   
+│   
 ├── **pi**
 │   ├── Linux root filesytem: _2019-07-10-raspbian-buster-lite.zip_
 │   ├── Linux kernel: _kernel-qemu-4.14.79-stretch_
@@ -49,3 +50,4 @@ Assume our workspace folder name is `Embedded-c` as created above which further 
 │   ├── 03_ ...
 ├── README.md
 └── .gitignore
+```
