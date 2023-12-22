@@ -3,7 +3,7 @@
 * **A build system:** (i.e. x86) The system you use to write the code. (We use Docker to run Ubuntu in a virtualise environment on our computer.) 
 * **A target system:** (i.e. ARM) The system your code is going to run on. (We use QEMU to emulate Raspberry pi board.)
 
-##### Download / Install Docker    
+#### Download / Install Docker    
 
 > https:/​/​docs.​docker.​com/​docker-​for-​mac/​install
 1. Confirm the installation `$ docker --version`
@@ -16,7 +16,7 @@
 * `$HOME/Embedded-c/projects:/mnt` on _step 4_ means whatever we put inside `~/Embedded-c/projects` folder, will appear in `/mnt` folder of Linux (i.e. Ubuntu) running inside Docker container.
 - Start/Stop previously created container `$ docker start <container-name/ID>` and `$ docker stop <container-name/ID>`. Then you can login to the interactive shell `$ docker exec -ti <container-name/ID> bash`
 
-##### Download / Install Qemu       
+#### Download / Install Qemu       
 
 > https:/​/​www.​qemu.​org/​download/
 
@@ -37,13 +37,13 @@ $ uname -a
 Assume our workspace folder name is `Embedded-c` as created above which further contain two folders as follows:      
 
 ```
-**Embedded-c**   
+Embedded-c  
 │   
-├── **pi**
-│   ├── Linux root filesytem: _2019-07-10-raspbian-buster-lite.zip_
-│   ├── Linux kernel: _kernel-qemu-4.14.79-stretch_
-│   ├── Device tree blob: _versatile-pb.dtb_
-├── **projects**
+├── pi
+│   ├── Linux root filesytem: 2019-07-10-raspbian-buster-lite.zip
+│   ├── Linux kernel: kernel-qemu-4.14.79-stretch
+│   ├── Device tree blob: versatile-pb.dtb
+├── projects
 │   ├── 00_project
 │   ├── 01_project
 │   ├── 02_project
