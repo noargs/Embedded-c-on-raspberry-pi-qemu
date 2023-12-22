@@ -1,9 +1,11 @@
-### Embedded C++ with Virtual Raspberry pi on QEMU
+## Embedded C++ with Virtual Raspberry pi on QEMU
 
 * **A build system:** (i.e. x86) The system you use to write the code. (We use Docker to run Ubuntu in a virtualise environment on our computer.) 
 * **A target system:** (i.e. ARM) The system your code is going to run on. (We use QEMU to emulate Raspberry pi board.)
-
-#### Download / Install Docker    
+    
+		
+		
+### Download / Install Docker    
 
 > https:/​/​docs.​docker.​com/​docker-​for-​mac/​install
 1. Confirm the installation `$ docker --version`
@@ -14,9 +16,11 @@
       
             
 * `$HOME/Embedded-c/projects:/mnt` on _step 4_ means whatever we put inside `~/Embedded-c/projects` folder, will appear in `/mnt` folder of Linux (i.e. Ubuntu) running inside Docker container.
-- Start/Stop previously created container `$ docker start <container-name/ID>` and `$ docker stop <container-name/ID>`. Then you can login to the interactive shell `$ docker exec -ti <container-name/ID> bash`
+- Start/Stop previously created container `$ docker start <container-name/ID>` and `$ docker stop <container-name/ID>`. Then you can login to the interactive shell `$ docker exec -ti <container-name/ID> bash`    
+     
+		 
 
-#### Download / Install Qemu       
+### Download / Install Qemu       
 
 > https:/​/​www.​qemu.​org/​download/
 
