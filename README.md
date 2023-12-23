@@ -54,4 +54,8 @@ Embedded-c
 │   ├── 03_ ...
 ├── README.md
 └── .gitignore
-```
+```     
+    
+### Update Ubuntu / Install cross-compilation tools
+1. Get up-to-date list of packages available for the installation by running `# apt update -y`
+2. Install the cross-compilation tools `# apt install -y crossbuild-essential-armel`
