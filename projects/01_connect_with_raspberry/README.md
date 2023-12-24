@@ -32,7 +32,7 @@ In such situations, developers can use remote debugging support provided by GDB.
 4. Switch to the build system terminal and change the directory to `/mnt/projects/01_connect_with_raspberry`: `# cd /mnt//projects/01_connect_with_raspberry`
 5. Install the _gdb-multiarch_ package, which provides the necessary support for the ARM platform: `# apt install -y gdb-multiarch`
 6. Next, run _gdb_: `# gdb-multiarch -q ./hello`
-7. Configure the remote connection by typing the following command in the gdb command line (make sure you replace 192.168.1.5 with your actual IP address): `target remote 192.168.1.5:9090`
+7. Configure the remote connection by typing the following command in the gdb command line (make sure you replace 192.168.1.1 with your actual IP address): `target remote 192.168.1.1:9090`
 8. Type the following command: `continue`
 
 The program will now run.
