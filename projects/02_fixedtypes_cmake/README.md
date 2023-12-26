@@ -1,8 +1,8 @@
-After an embedded application is built on a build system (Ubuntu running on docker container) using a cross-compiler, it should be transferred to the target system (Raspberry pi running on Qemu). The best way to do this on Linux-based embedded systems is by using networking connectivity and a remote shell (_Secure shell SSH_). We will copy the application binary `hello` to emulated ARM system (Raspberry pi on Qemu) using secure copy, connect to it using SSH, and run the executable in SSH.
+After an embedded application is built on a build system (Ubuntu running on docker container) using a cross-compiler, it should be transferred to the target system (Raspberry pi running on Qemu). The best way to do this on Linux-based embedded systems is by using networking connectivity and a remote shell (_Secure shell SSH_). We will copy the application binary `02_fixedtypes_cmake` to emulated ARM system (Raspberry pi on Qemu) using secure copy, connect to it using SSH, and run the executable in SSH.
 
 1. Change the directory to **/mnt/projects/02_fixedtypes_cmake** by running `# cd /mnt/projects/02_fixedtypes_cmake` on Ubuntu (running in docker container)
 
-2. Create the **fixed_types.cpp** file and install **CMake** in your build system `# apt install -y cmake`
+2. Create the **fixedtypes.cpp** file and install **CMake** in your build system `# apt install -y cmake`
 
 3. Create CMakeLists.txt with following contents.
 ```make
