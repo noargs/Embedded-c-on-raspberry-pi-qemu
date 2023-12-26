@@ -10,7 +10,7 @@ int main()
 {
 	char buffer[] = "Hello, world!";
 	uint32_t size = sizeof(buffer);
-	SendDataToDevice(&size, size);
+	SendDataToDevice(&size, sizeof(size));
 	SendDataToDevice(buffer, size);
 	return 0;
 }
