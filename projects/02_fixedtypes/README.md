@@ -6,7 +6,7 @@ C and C++ developers often forget that the size of fundamental data types such a
 | 16-bit   | int16_t  | uint16_t |
 | 32-bit   | int32_t  | uint32_t |
 
-1. Change the directory to **/mnt/projects/02_fixedtypes_cmake** by running `# cd /mnt/projects/02_fixedtypes_cmake` on Ubuntu (running in docker container)
+1. Change the directory to **/mnt/projects/02_fixedtypes** by running `# cd /mnt/projects/02_fixedtypes` on Ubuntu (running in docker container)
 
 2. Create the **fixedtypes.cpp** file and create `CMakeLists.txt` with following contents.
 ```make
@@ -22,9 +22,9 @@ set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabi-g++)
 
 3. Run CMake `# mkdir build && cd build && cmake ..` and build applicationn by running `# make`
 4. Switch to Ubuntu and install SSH client `# apt install -y ssh`
-5. Now, we can copy the `02_fixedtypes_cmake` executable in the _build_ folder, to the target system (i.e. Raspberry pi), on the Ubuntu by `# scp -P22040 /mnt/projects/02_fixedtypes_cmake/build/fixedtypes pi@192.168.1.1:~/02_fixedtypes_cmake`
+5. Now, we can copy the `02_fixedtypes_cmake` executable in the _build_ folder, to the target system (i.e. Raspberry pi), on the Ubuntu by `# scp -P22040 /mnt/projects/02_fixedtypes/build/fixedtypes pi@192.168.1.1:~/02_fixedtypes`
 6. When asked for password, type `raspberry`. Switch back to Raspberry pi emulator window. Confirm the executable we just copied `$ ls ~`
-7. Now, run the program `$ ./02_fixedtypes_cmake`
+7. Now, run the program `$ ./02_fixedtypes`
 
    
 * Start previously created container `$ docker start <container-name/ID>` and Login to the interactive shell `$ docker exec -ti <container-name/ID> bash` 
