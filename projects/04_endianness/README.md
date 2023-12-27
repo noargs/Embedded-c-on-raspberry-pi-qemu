@@ -49,3 +49,7 @@ set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabi-g++)
 * If encountered with an error _Connection closed by remote host_ then don't forget to enable SSH services (i.e. SSH Server) on target system (i.e. Rasberry pi on Qemu), by running `$ sudo systemctl start ssh`, if Qemu was shut and recently started again.
 * If encountered with error _Could not set up host forwarding rule_ then try to change the _tcp_ ports with different port numbers
 
+Nowadays, most widespread platforms, such as x86 and Acorn RISC Machine (ARM), are little-endian. However, your code should never assume the endianness of the system implicitly.
+If you need to exchange data between applications running on the same system, it is safe to stick with the target platform's endianness. However, if your application needs to exchange data with other systems, either via network protocols or common data storage, consider converting your binary data into the common endianness.
+Text-based data formats do not have issues with endianness. Use JSON format for platform-independent and human-readable representations of your data.
+
