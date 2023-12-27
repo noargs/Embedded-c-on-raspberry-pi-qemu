@@ -2,13 +2,13 @@ The pointer size also depends on the architecture. Developers often need to addr
 For example, in a 32-bit system, pointers are 32-bit, the same as _int_. However, in a 64-bit system, the size of _int_ is still 32-bit, while pointers are 64-bit.
 **size_t** is a special data type since it represents offset and data sizes in an architecture- independent way.
 
-1. Change the directory to **/mnt/projects/03_sizet** by running `# cd /mnt/projects/02_fixedtypes_cmake` on Ubuntu (running in docker container)
+1. Change the directory to **/mnt/projects/03_sizet** by running `# cd /mnt/projects/03_sizet` on Ubuntu (running in docker container)
 
-2. Create the **sizet.cpp** file and create `CMakeLists.txt` with following contents.
+2. `CMakeLists.txt` contains following contents.
 ```make
 cmake_minimum_required(VERSION 3.5.1)
-project(fixedtypes_cmake)
-add_executable(fixedtypes fixedtypes.cpp)
+project(03_sizet)
+add_executable(sizet sizet.cpp)
 
 set(CMAKE_SYSTEM_NAME Linux)
 set(CMAKE_SYSTEM_PROCESSOR arm)
@@ -26,3 +26,5 @@ set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabi-g++)
 * Start previously created container `$ docker start <container-name/ID>` and Login to the interactive shell `$ docker exec -ti <container-name/ID> bash` 
 * If encountered with an error _Connection closed by remote host_ then don't forget to enable SSH services (i.e. SSH Server) on target system (i.e. Rasberry pi on Qemu), by running `$ sudo systemctl start ssh`, if Qemu was shut and recently started again.
 * If encountered with error _Could not set up host forwarding rule_ then try to change the _tcp_ ports with different port numbers
+
+The C++ standard defines a std::size_t type. It is identical to the plain C size_t, except it is defined in the std namespace. Usage of std::size_t is preferable in your C++ code since it is part of the standard, but both std::size_t and size_t are interchangeable.
