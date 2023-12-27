@@ -36,3 +36,42 @@ In such situations, developers can use remote debugging support provided by GDB.
 8. Type the following command: `continue`
 
 The program will now run.
+
+### Using CMake as a build system
+Real applications, usually have a more complex structure. They can contain multiple source files, depend on other libraries, and be split into independent projects.
+We need a way to conveniently define build rules for any type of application. CMake is one of the most well-known and widely used tools that allow developers to define high-level rules and translate them into a lower-level build system, such as a Unix make
+
+1. Change the directory to **/mnt/projects/01_connect_with_raspberry** by running `# cd /mnt/projects/01_connect_with_raspberry` on Ubuntu (running in docker container)
+
+2. Install **CMake** in your build system `# apt install -y cmake`
+
+3. Create CMakeLists.txt with following contents.
+```make
+cmake_minimum_required(VERSION 3.5.1)
+project(fixedtypes_cmake)
+add_executable(fixed_types fixed_types.cpp)
+```
+
+4. Running cmake command will generate binary for x86. However we need to add cross-compilation support.
+```make
+set(CMAKE_C_COMPILER /usr/bin/arm-linux-gnueabi-gcc)
+set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabi-g++)
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+project(fixed_types_cmake)
+add_executable(fixed_types fixed_types.cpp)
+```
+
+5. Run CMake `# mkdir build && cd build && cmake ..` and build applicationn by running `# make`
+6. Switch to Ubuntu and install SSH client `# apt install -y ssh`
+7. Now, we can copy the `hello` executable present in the _build_ folder, to the target system (i.e. Raspberry pi), on the Ubuntu by `# scp -P22040 /mnt/projects/01_connect_with_raspberry/build/hello pi@192.168.1.1:~/hello`
+8. When asked for password, type `raspberry`. Switch back to Raspberry pi emulator window. Confirm the executable we just copied `$ ls ~`
+9. Now, run the program `$ ./hello`
+
+   
+* Start previously created container `$ docker start <container-name/ID>` and Login to the interactive shell `$ docker exec -ti <container-name/ID> bash` 
+* If encountered with an error _Connection closed by remote host_ then don't forget to enable SSH services (i.e. SSH Server) on target system (i.e. Rasberry pi on Qemu), by running `$ sudo systemctl start ssh`, if Qemu was shut and recently started again.
+* If encountered with error _Could not set up host forwarding rule_ then try to change the _tcp_ ports with different port numbers
+
